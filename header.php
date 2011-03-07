@@ -5,11 +5,15 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage Starkers
- * @since Starkers 3.0
+ * @subpackage Emvil
+ * @since Emvil 1.0
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(sv-SE); ?>>
+
+<!--[if IE 7 ]> <html class="no-js ie7" <?php language_attributes(sv-SE); ?>> <![endif]-->
+<!--[if IE 8 ]> <html class="no-js ie8" <?php language_attributes(sv-SE); ?>> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" <?php language_attributes(sv-SE); ?>> <!--<![endif]-->
+
 <head>
 
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -56,9 +60,4 @@
 		</h1>
 		<p class="tagline"><?php bloginfo( 'description' ); ?></p>
 	
-		<nav id="access" role="navigation">
-		 
-			<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-			<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- /#access -->
 	</header>
