@@ -133,8 +133,10 @@ input:invalid, textarea:invalid {
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
+::-moz-selection{ background: #00c0b7; color:#fff; text-shadow: none; }
+::selection { background:#00c0b7; color:#fff; text-shadow: none; }
 /*  j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #FF5E99; } 
+a:link { -webkit-tap-highlight-color: #00c0b7; } 
 
 /* make buttons play nice in IE:    
    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
@@ -179,10 +181,10 @@ body, select, input, textarea {
   color: rgba(0,0,0,.85); 
   font-family: 'CallunaRegular', Georgia, serif; 
 }
-a:hover, a:active { outline: none; }
+a:hover, a:active { outline: none; text-decoration: none; }
 a, a:active, a:visited { 
-	color: rgba(72, 0, 72, .9); 
-	text-decoration: none;
+	color: rgba(121, 0, 116, .9); 
+	text-decoration: underline;
 }
 a:hover { color: rgba(72, 0, 72, .6); }
 
@@ -191,34 +193,31 @@ ol { list-style-type: decimal; }
 nav ul, nav li { margin: 0; } 
 
 input[type="text"] {
-	padding: 4px 5px;
-	border: 1px solid #c3c3c3;
 	width: 94%;
+	padding: 4px 2.9%;
+	background: rgba(255,255,255,.6);
+	border: 1px solid #d1d2d6;
 }
 input[type="text"]:focus {
 	border-color: #cac8c5;
 	color: #666;
 }
-
 #wrapper {
 	width: 80%;
-	max-width: 1000px;
+	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 0 40px;
 	overflow: hidden;
 }
 html {
-	background: #edefe5 url(images/bg-body.png) repeat center top;
+	background: #eee url(images/bg-body2.png) repeat center top;
 	background-attachment: fixed;
 }
-body {
-	background: url(images/emvil-second.png) no-repeat 100% bottom;
-}
 #masthead { 
-	margin: 0 -30px 1.2em;
+	margin: 0 0 1.2em;
 	padding: 33px 0 0 0; 
 }
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4,h5,#searchform label {
 	margin-bottom: .6em;
 	line-height: 1.2em;
 	font-family: MuseoSlab500, "Helvetica neue", helvetica, sans-serif;
@@ -234,7 +233,7 @@ h3 { font-size: 123.1%; }
 h4 { font-size: 108% }
 h5 { font-size: 93% }
 a:hover, a:active { outline: none; }
-h2 a, h2 a:active, h2 a:visited { color: rgba(121, 0, 116, .9); text-shadow: #fff 1px 1px 0;  }
+h2 a, h2 a:active, h2 a:visited { text-decoration: none; text-shadow: #fff 1px 1px 0;  }
 h2 a:hover,
 h2 a:focus { color: rgba(72, 0, 72, .7); }
 p,ul,ol,dl {
@@ -271,10 +270,10 @@ article h3 {
 }
 article > p:first-of-type:first-letter {
 	margin: 0 .15em 0 0;
-	padding: 10px 10px;
+	padding: .2em 10px;
 	float: left;
-	font-size: 50px;
-	line-height: 50px;
+	font-size: /*221%*/313%;
+	line-height: 1em;
 	color: #DFDDD7;
 	background: rgba(72, 0, 72, 0.7) url(images/bg-body-second.png);
 	font-family: "museoslab500", serif;
@@ -289,17 +288,16 @@ article:last-of-type footer {
 }
 footer {
 	clear: both;
-	border-bottom: 1px dashed #c3c3c3;
+	border-bottom: 1px solid #d1d2d6;
 	font-size: 90%;
 }
 .the-end {
-	max-width: 1000px;
-	min-width: 400px;
-	height: 250px;
-	margin: 0 auto;
-	padding: 30px 30px 0;
+	position: relative;
+	height: 223px;
+	padding: 30px 0 0;
 	border: none;
-	background: url(images/bg-top-border-second.png) repeat-x left -5px;
+	font-size: 80%;
+	background: rgba(166,172,172,.2) url(images/emvil-second.png) no-repeat 100% bottom;
 }
 .the-end a {
 	margin: 0 5px 0 0;
@@ -309,6 +307,18 @@ footer {
 .the-end a:focus {
 	text-decoration: underline;
 	color: rgba(0,0,0,.7);
+}
+.footer-links {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	padding: 0 20px;
+	margin: 0;
+	list-style: none;
+}
+.footer-links li {
+	display: block;
 }
 .publish-meta {
 	margin: 0;
@@ -324,7 +334,7 @@ footer {
 	font-size: 100%;
 }
 .logo {
-	margin: 0 0 0 17.5%;
+	margin: 0 0 0 14.5%;
 }
 .logo,
 .logo a {
@@ -340,7 +350,7 @@ footer {
 }
 .divider {
 	padding-top: .6em;
-	border-top: 1px solid #c3c3c3;
+	border-top: 1px solid #d1d2d6;
 }
 .widget_search {
 	margin-bottom: 1.6em;
@@ -352,9 +362,10 @@ footer {
 .entry-date {
 	text-transform: capitalize;
 }
-.upper-heading {
+.upper-heading,
+#searchform label  {
 	margin-bottom: .6em;
-	font-size: 108%;  
+	font-size: 90%;  
 	color: rgba(0,0,0,.7); 
 	text-transform: uppercase; 
 	letter-spacing: 1px;
@@ -376,7 +387,7 @@ footer {
 }
 .menu li {
 		float: none;
-		border-top: 1px solid #c3c3c3;
+		border-top: 1px solid #d1d2d6;
 		text-align: left;
 	}
 .menu a {
@@ -432,7 +443,7 @@ blockquote p:after {
 
 .tagline { 
 	padding-top: 13px;
-	margin-left: 18%;
+	margin-left: 15.6%;
 	font-size: 90%;
 	letter-spacing: 2px;
 	color: #666;
@@ -442,11 +453,39 @@ blockquote p:after {
 }
 .textwidget {
 	font-size: 80%;
+	color: #555;
+}
+.textwidget p {
+	border-bottom: 1px solid #d1d2d6;
+	padding-bottom: 1em;
+	margin-bottom: 0.8em;
+}
+.widget_text {
+	background: rgba(0,0,0,.05);
 }
 .frame {
 	position: fixed;
 	background: rgba(255,255,255,.7);
 	z-index: 100;
+}
+#searchform input[type="text"] {
+	width: 84%;
+	padding-right: 12%;
+}
+#searchform input[type="submit"] {
+	height: 20px;
+	width: 20px; 
+	float: right;
+	margin: -23px 0 0 0;
+	padding: 0;
+	border: none;
+	position: relative;
+	text-indent: -999em;
+	background: url(images/search.png) no-repeat;
+}
+#searchform input[type="submit"]:hover,
+#searchform input[type="submit"]:focus {
+	background-position: 0 -31px;
 }
 .top, .bottom { height: 10px; width: 100%; }
 .right, .left { width: 10px; height: 100%; }
@@ -514,26 +553,59 @@ blockquote p:after {
   
 }
 
-@media screen and (max-width: 860px) {
-	.unit{
-		width: auto;
-		float:none; 
+@media screen and (max-width: 900px) {
+	#wrapper {
+		width: 90%;
 	}
 	article.size2of3 {
-		width: 75%;
+		width: 86%;
 		margin: 0 5% 1.6em 0;
 		position: relative;
 	}
+	section.size4of5 {
+		width: 70%;
+	}
 	.logo {
-		margin: 0 0 0 21.5%;
+		margin: 0;
 	}
 	.tagline {
-		margin-left: 22%;
+		margin-left: 1%;
 	}
+	.publish-meta {
+		position: static;
+		padding: 0 0 1.6em;
+		line-height: inherit;
+		width: auto;
+		text-align: left;
+	}
+	.publish-meta li {
+		display: inline;
+	}
+	article {
+		margin: 0 0 1.6em;
+		padding-left: 0;
+		position: relative;
+	}
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	
+	body {
+		border: 10px solid rgba(255,255,255,.6);
+	}
+	.frame {
+		display: none;
+	}
+	
 }
 
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
 	
+	body {
+		border: 10px solid rgba(255,255,255,.6);
+		border-width: 0 10px 10px;
+		font-size: 14px;
+	}
 	.logo {
 		margin-left: 25px;
 	}
@@ -563,7 +635,7 @@ blockquote p:after {
 		padding: 0 .6em;
 	}
   	.unit{
-		width: auto;
+		width: auto !important;
 		float:none; 
 	}
   	article.size2of3 {
@@ -571,16 +643,7 @@ blockquote p:after {
 		margin: 0 0 1.6em;
 		width: auto;
 	}
-	.publish-meta {
-		position: static;
-		padding: 0 0 1.6em;
-		line-height: inherit;
-		width: auto;
-		text-align: left;
-	}
-	.publish-meta li {
-		display: inline;
-	}
+	
 	.meta-prep {
 		display: inline;
 		font-size: 90%;
@@ -599,8 +662,16 @@ blockquote p:after {
 		padding: 0;
 		margin: 0 auto;
 	}
-	body {
-		padding: 0;
+	.the-end {
+		height: 170px;
+		background-size: auto 200px;
+	}
+	.footer-links {
+		bottom: 0;
+		background: rgba(255,255,255,.4);
+	}
+	.footer-links li {
+		display: inline;
 	}
 	
   /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
